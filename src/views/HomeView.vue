@@ -5,7 +5,10 @@
         <div class="bubble">
           <h1 class="message greeting">
             {{ $t('home.greeting') }}
-            <a href="https://www.linkedin.com/in/antanas-gargasas-993a4917a/"
+            <a
+              href="https://www.linkedin.com/in/antanas-gargasas-993a4917a/"
+              target="_blank"
+              rel="noopener"
               >Antanas Ga.</a
             >
           </h1>
