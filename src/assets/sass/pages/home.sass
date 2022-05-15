@@ -1,0 +1,164 @@
+.home
+    padding-top: 4vh
+    display: flex
+    flex-flow: column-reverse
+    animation: 0.3s ease-out 1 home-inland
+    transition: padding-top 0.3s
+    padding-bottom: 125vh
+
+    .frame
+        position: relative
+        width: 100%
+        display: flex
+        align-items: center
+        flex-flow: column-reverse
+        min-height: 25rem
+
+        .bubble
+            opacity: 0
+            position: absolute
+            display: flex
+            flex-flow: column
+            gap: 0.5rem
+            bottom: 1vh
+            align-items: center
+            animation: 0.3s ease-in-out 0.3s 1 home-frame-bubble-inland forwards
+
+
+            .message
+                padding: 1rem
+                border-radius: 1rem
+                background: var(--item-background)
+                font-weight: bold
+                min-width: 12rem
+                max-width: 25rem
+                box-shadow: var(--def-shadow)
+
+                a
+                    background: linear-gradient(45deg, rgba(131,58,180) 0%, rgba(0,255,233) 50%, rgba(69,252,162) 100%)
+                    text-decoration: none
+                    font-weight: bolder
+                    -webkit-background-clip: text
+                    -webkit-text-fill-color: transparent
+                    animation:  10s linear infinite alternate home-message-link-highlighter
+
+                &.greeting
+                    white-space: nowrap
+                
+                &.descriptor
+                    white-space: nowrap
+
+        .profile
+            position: absolute
+            max-width: 70vw
+            width: 433px
+            height: 420px
+
+            .background
+                position: absolute
+                max-width: 70vw
+                width: 420px
+                scale: 0
+                aspect-ratio: 1
+                border-radius: 50%
+                background: var(--item-background)
+                animation: 0.3s ease-in-out 0.3s 1 home-frame-profile-inland forwards
+
+
+                &::before
+                    content: ''
+                    position: absolute
+                    top: 50%
+                    left: 50%
+                    transform: translate(-50%, -50%)
+                    width: 97.5%
+                    aspect-ratio: 1
+                    border-radius: 50%
+                    border: 0.5rem dashed var(--color-text)
+
+            & img
+                position: absolute
+                max-width: 70vw
+                width: 420px
+            
+            .wave
+                position: absolute
+                transform: translate(-70%, 120%)
+
+                & > svg
+                    max-width: 32vw
+                    width: 12rem
+                    aspect-ratio: 1
+    
+@media screen and (min-width: 1100px)
+    .home
+        padding-top: 19vh
+        flex-flow: column
+
+        .frame
+            .bubble
+                opacity: unset
+                margin-top: unset
+                bottom: 17.5rem
+                width: 0
+                animation: unset
+
+                .message
+                    position: absolute
+                    box-shadow: var(--def-shadow)
+
+                    &.greeting
+                        opacity: 0
+                        animation: 0.4s ease-in-out 0.3s 1 home-frame-bubble-greeting-inland forwards
+
+                    &.descriptor
+                        opacity: 0
+                        animation: 0.4s ease-in-out 0.6s 1 home-frame-bubble-descriptor-inland forwards
+
+
+@keyframes home-message-link-highlighter
+    from
+        filter: hue-rotate(0deg)
+    to
+        filter: hue-rotate(230deg)
+
+@keyframes home-inland
+    from
+        margin-top: -25vh
+    to
+        margin-top: 0
+
+@keyframes home-frame-profile-inland
+    from
+        scale: 0
+        
+    to
+        scale: 1
+
+@keyframes home-frame-bubble-greeting-inland
+    from
+        right: 0
+    to
+        opacity: 1
+        right: 240px
+
+@keyframes home-frame-bubble-descriptor-inland
+    from
+        left: 0
+        top: 5rem
+        scale: 0.3
+    to
+        left: 240px
+        top: 5rem
+        scale: 1
+        opacity: 1
+
+
+@keyframes home-frame-bubble-inland
+    from
+        opacity: 0
+        scale: 0.2
+        bottom: -1vh
+    to
+        opacity: 1
+        bottom: -9rem
