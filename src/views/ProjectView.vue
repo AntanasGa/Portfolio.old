@@ -29,7 +29,7 @@ export default defineComponent({
           cover: '/project_portfolio.webp',
           title: { lt: 'Portfolio', en: 'Portfolio' },
           summary: {
-            lt: 'Projetas nenaudojantis papildomų resursų, supažindinantis su atliekama veikla',
+            lt: 'Projektas, nenaudojantis papildomų resursų, supažindinantis su atliekama veikla',
             en: "Project that doesn't use aditional resources as an itroductinary to ongoing and complete projects",
           },
           git: 'https://github.com/AntanasGa/Portfolio',

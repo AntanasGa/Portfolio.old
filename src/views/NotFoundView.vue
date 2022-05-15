@@ -15,6 +15,11 @@ import { defineComponent } from 'vue'
 import { RouterLink } from 'vue-router'
 
 export default defineComponent({
+  created() {
+    const splitTitle = document.title.split(' | ')
+    const baseTitle = splitTitle.length > 1 ? splitTitle[1] : splitTitle[0]
+    document.title = [this.$t('routes.notFound'), baseTitle].join(' | ')
+  },
   components: { RouterLink },
 })
 </script>
