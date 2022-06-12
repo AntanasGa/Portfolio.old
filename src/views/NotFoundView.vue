@@ -23,18 +23,3 @@ export default defineComponent({
   components: { RouterLink },
 })
 </script>
-
-<style lang="sass">
-.notFound
-  display: flex
-  justify-content: center
-  align-items: center
-  height: 100vh
-
-  p
-    width: 100%
-    border-radius: 1rem
-    padding: 1rem
-    background: var(--item-background)
-    max-width: 25rem
-</style>
