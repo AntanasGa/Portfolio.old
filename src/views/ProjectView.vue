@@ -35,6 +35,15 @@ export default defineComponent({
           git: 'https://github.com/AntanasGa/Portfolio',
           technologies: ['vue'],
         },
+        {
+          title: { lt: 'Apšv1etimas', en: 'L1ghts' },
+          summary: {
+            lt: 'Projektas šviesų valdymui naudojant i2c protokolą, orientuotas į technologijų pažinimą.',
+            en: 'Project to control lights over i2c protocol, oriented towards technology exploration.',
+          },
+          git: 'https://github.com/AntanasGa/L1ghts',
+          technologies: ['react', 'rust'],
+        },
       ] as IProject[],
     }
   },

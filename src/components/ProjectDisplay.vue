@@ -24,6 +24,24 @@
               <VueIcon />
               <p>Vue.js</p>
             </a>
+            <a
+              href="https://reactjs.org/"
+              target="_blank"
+              rel="noopener"
+              v-if="project.technologies.includes('react')"
+            >
+              <ReactIcon />
+              <p>React.js</p>
+            </a>
+            <a
+              href="https://www.rust-lang.org/"
+              target="_blank"
+              rel="noopener"
+              v-if="project.technologies.includes('rust')"
+            >
+              <RustIcon />
+              <p>Rust</p>
+            </a>
           </div>
         </article>
       </section>
@@ -59,6 +77,8 @@ import GitPage from './icons/GitPage.vue'
 import PlayIcon from './icons/PlayIcon.vue'
 import type { IProject } from './types'
 import VueIcon from './icons/VueIcon.vue'
+import ReactIcon from './icons/ReactIcon.vue'
+import RustIcon from './icons/RustIcon.vue'
 
 interface IPositions {
   x: number
@@ -222,6 +242,6 @@ export default defineComponent({
       content.style.width = `${indentBy > 100 ? 100 : indentBy}%`
     },
   },
-  components: { GitPage, PlayIcon, VueIcon },
+  components: { GitPage, PlayIcon, VueIcon, ReactIcon, RustIcon },
 })
 </script>
