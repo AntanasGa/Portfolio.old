@@ -29,9 +29,14 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import HandWave from '@/components/icons/HandWave.vue'
+import { useJsonLd } from '@/stores/jsonLd'
 
 export default defineComponent({
   components: { HandWave },
+  setup() {
+    const jsonLd = useJsonLd()
+    return { jsonLd }
+  },
   data() {
     return {
       moveStart: false,
@@ -44,6 +49,14 @@ export default defineComponent({
       this.$t(`routes.${(this.$route.name as string) || ''}`),
       baseTitle,
     ].join(' | ')
+    const ld = {
+      '@context': 'http://schema.org/',
+      '@type': 'Person',
+      name: 'Antanas Ga',
+      jobTitle: 'Full stack web developer',
+      url: 'https://antanasga.lt',
+    }
+    this.jsonLd.set(JSON.stringify(ld))
   },
   mounted() {
     window.addEventListener('scroll', this.scroll)

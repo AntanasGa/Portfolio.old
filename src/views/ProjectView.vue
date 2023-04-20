@@ -18,8 +18,13 @@
 import type { IProject } from '@/components/types'
 import { defineComponent } from 'vue'
 import ProjectDisplay from '../components/ProjectDisplay.vue'
+import { useJsonLd } from '@/stores/jsonLd'
 
 export default defineComponent({
+  setup() {
+    const jsonLd = useJsonLd()
+    return { jsonLd }
+  },
   data() {
     return {
       opacity: 0,
@@ -54,6 +59,25 @@ export default defineComponent({
       this.$t(`routes.${(this.$route.name as string) || ''}`),
       baseTitle,
     ].join(' | ')
+    const ld = {
+      '@context': 'https://schema.org',
+      '@type': 'WebPage',
+      potentialAction: {
+        '@type': 'ViewAction',
+        target: this.projects
+          .filter((x) => x.git)
+          .map((x, n) => ({
+            '@type': 'EntryPoint',
+            urlTemplate: x.git,
+            application: {
+              '@type': 'SoftwareApplication',
+              '@id': n + 1,
+              name: x.title,
+            },
+          })),
+      },
+    }
+    this.jsonLd.set(JSON.stringify(ld))
   },
   mounted() {
     this.opacity = 1
